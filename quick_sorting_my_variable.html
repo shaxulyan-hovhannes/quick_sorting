@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Triangle</title>
+    </head>
+    <body>
+        <script>
+
+
+        var arr = [6, 7, 2, 5, 9, 1, 3, 8];
+
+        function swap (arr, i, j) {
+            var tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+
+      function quickSort(arr, first, last) {
+        var min = first, max = last;
+        var mid = Math.floor((min + max) / 2);
+
+        while (min <= max) {
+
+          while (arr[min] < arr[mid]) {
+            min++;
+          }
+          while (arr[max] > arr[mid]) {
+            max--;
+          }
+          if (min <= max) {
+            swap(arr, min, max);
+            min++;
+            max--;
+          }
+        }
+
+        if (first < max) {
+          quickSort(arr, first, max);
+        }
+
+        if (min < last) {
+          quickSort(arr, min, last);
+        }
+        return arr;
+      }
+      document.write(quickSort(arr, 0, arr.length-1));
+
+
+    </script>
+  </body>
+</html>
